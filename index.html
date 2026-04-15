@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kogulan Anbuselvan | Engineering Portfolio</title>
     <link rel="icon" type="image/png" href="icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -179,7 +179,7 @@
     <footer id="contact" class="white-section" style="border-top: 1px solid var(--border-color);">
         <div class="container">
             <div class="label" style="text-align: center;">05 / GET IN TOUCH</div>
-            <h2>Let's build something <span style="color: var(--accent-blue);">together.</span></h2>
+            <h2 style="text-align: center;">Let's build something <span style="color: var(--accent-blue);">together.</span></h2>
             <div class="social-links">
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kogulk194@gmail.com" target="_blank" class="gmail">
                     <i class="fa-solid fa-envelope"></i> GMAIL
@@ -209,6 +209,13 @@
             root.setAttribute('data-theme', newTheme);
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
+        });
+
+        // Close menu when a link is clicked (crucial for mobile UX)
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('click').checked = false;
+            });
         });
     </script>
 </body>
