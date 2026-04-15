@@ -46,7 +46,7 @@ nav {
 }
 
 nav .logo { 
-    font-weight: 600; letter-spacing: 2px; font-size: 0.3rem; 
+    font-weight: 100; letter-spacing: 2px; font-size: 0.35rem; 
     font-family: 'Montserrat'; color: var(--text-main); text-transform: uppercase;
 }
 
@@ -99,33 +99,23 @@ section, footer { padding: 140px 10%; position: relative; }
 .skill-tag { padding: 10px 20px; border: 1px solid var(--text-muted); font-size: 0.7rem; font-weight: 600; text-decoration: none; color: inherit; transition: 0.4s; }
 .skill-tag:hover { background: var(--accent-blue); color: white; border-color: var(--accent-blue); transform: translateY(-5px); }
 
-/* --- CONTACT (COLORS FIXED TO DEFAULT) --- */
+/* --- CONTACT --- */
 footer { display: flex; flex-direction: column; align-items: center; text-align: center; }
 footer h2 { font-size: 2.5rem; margin-bottom: 40px; font-weight: 900; }
 .social-links { display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; }
 .social-links a { 
-    text-decoration: none; 
-    font-weight: 700; 
-    font-size: 0.75rem; 
-    transition: 0.4s; 
-    position: relative; 
-    padding-bottom: 8px; 
-    display: inline-flex; 
-    align-items: center; 
+    text-decoration: none; font-weight: 700; font-size: 0.75rem; transition: 0.4s; 
+    position: relative; padding-bottom: 8px; display: inline-flex; align-items: center; 
 }
 
-/* Base colors - No longer black by default */
 .social-links a.gmail { color: #EA4335; }
 .social-links a.linkedin { color: #0077B5; }
 .social-links a.instagram { 
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .social-links a.whatsapp { color: #25D366; }
 
-/* Underline Logic remains the same */
 .social-links a::after { 
     content: ''; position: absolute; width: 0%; height: 2px; bottom: 0; left: 0; transition: 0.4s ease-in-out; 
 }
@@ -144,6 +134,7 @@ footer h2 { font-size: 2.5rem; margin-bottom: 40px; font-weight: 900; }
 @media (max-width: 768px) {
     nav { padding: 15px 5%; }
     .menu-btn { display: block; }
+    
     nav ul {
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
         background: var(--bg-main); flex-direction: column; justify-content: center;
@@ -152,11 +143,22 @@ footer h2 { font-size: 2.5rem; margin-bottom: 40px; font-weight: 900; }
     #click:checked ~ ul { right: 0; }
     nav ul li { margin: 20px 0; margin-left: 0; }
     nav ul li a { font-size: 1.5rem; }
-    header { height: auto; min-height: 100vh; padding-top: 100px; flex-direction: column; }
-    .hero-image { position: relative; width: 100%; height: 400px; mask-image: none; -webkit-mask-image: none; }
-    .hero-image img { opacity: 1; filter: none; }
-    .hero-content { padding: 40px 5%; text-align: center; }
-    h1 { font-size: 14vw; }
+
+    header { height: 100vh; overflow: hidden; display: flex; align-items: center; }
+    
+    /* Image stays in the background behind text on mobile */
+    .hero-image { 
+        width: 100vw; 
+        height: 100vh; 
+        opacity: 0.4; /* Slightly higher than desktop for mobile visibility */
+        mask-image: linear-gradient(to top, transparent 0%, black 40%);
+        -webkit-mask-image: linear-gradient(to top, transparent 0%, black 40%);
+    }
+    .hero-image img { filter: grayscale(100%); opacity: 0.35; }
+    
+    .hero-content { padding: 0 5%; text-align: center; width: 100%; }
+    h1 { font-size: 15vw; line-height: 1.1; }
+
     section, footer { padding: 80px 6%; }
     .split-content { flex-direction: column; gap: 30px; }
     .left, .right { width: 100%; flex: none; }
