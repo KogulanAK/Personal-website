@@ -7,161 +7,11 @@
     <meta name="google-site-verification" content="F69umQCvsBI631nL6wc60riBzqFYgQRjTxTFFVWUUIM" />
     <link rel="icon" type="image/png" href="icon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="my.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-
-    <style>
-        /* --- THEME SYSTEM --- */
-        :root[data-theme="dark"] {
-            --bg-main: #011622;
-            --bg-alt: #ffffffd2;
-            --text-main: #ffffff;
-            --text-inv: #1a1a1a;
-            --dot-color: #2a2a2a;
-            --nav-bg: rgba(1, 22, 34, 0.85);
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        :root[data-theme="light"] {
-            --bg-main: #999fa3f8;
-            --bg-alt: #474b52;
-            --text-main: #1a1a1a;
-            --text-inv: #ffffff;
-            --dot-color: #d1d1d1;
-            --nav-bg: rgba(0, 0, 0, 0.05);
-            --border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        :root {
-            --accent-blue: #0057ff;
-            --text-muted: #888888;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            transition: background 0.5s ease;
-            overflow-x: hidden;
-        }
-
-        /* --- NAVIGATION --- */
-        #click { display: none; visibility: hidden; position: absolute; left: -9999px; }
-
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 25px 8%;
-            display: flex; justify-content: space-between; align-items: center; 
-            z-index: 2000; background: var(--nav-bg);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        nav .logo { 
-            font-weight: 100; letter-spacing: 2px; font-size: 0.6rem; 
-            font-family: 'Montserrat'; color: var(--text-main); text-transform: uppercase;
-        }
-
-        nav ul { display: flex; list-style: none; align-items: center; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { 
-            text-decoration: none; color: var(--text-main); opacity: 0.7; 
-            font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; transition: 0.3s; 
-        }
-        nav ul li a:hover { color: var(--accent-blue); opacity: 1; }
-
-        .menu-btn { display: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; }
-
-        /* --- HERO --- */
-        header { height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero-image { position: absolute; right: 0; top: 0; width: 55vw; height: 100vh; z-index: 1; mask-image: linear-gradient(to right, transparent 0%, black 25%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%); }
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); opacity: 0.3; }
-        .hero-content { flex: 1; z-index: 2; padding-left: 10%; }
-
-        h1 { font-family: 'Montserrat', sans-serif; font-size: 6vw; line-height: 0.85; font-weight: 900; text-transform: uppercase; }
-        .outline { color: transparent; -webkit-text-stroke: 1.5px var(--text-main); }
-        .role { color: var(--accent-blue); font-weight: 600; margin-top: 30px; letter-spacing: 5px; font-size: 0.8rem; text-transform: uppercase; }
-        .tagline { margin-top: 10px; opacity: 0.8; font-size: 0.9rem; }
-
-        header, .dark-section {
-            background-color: var(--bg-main);
-            background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
-        /* --- SECTIONS --- */
-        section, footer { padding: 140px 10%; position: relative; }
-        .white-section { background: var(--bg-alt); color: var(--text-inv); }
-        .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; margin-bottom: 40px; display: block; }
-        .split-content { display: flex; gap: 50px; }
-        .left { flex: 1; }
-        .right { flex: 2; }
-        .section-heading { font-size: 2.2rem; font-family: 'Montserrat'; font-weight: 900; }
-
-        .edu-block { margin-bottom: 50px; border-left: 2px solid var(--accent-blue); padding-left: 25px; transition: 0.3s; }
-        .edu-block:hover { transform: translateX(10px); }
-        .edu-title { font-family: 'Montserrat'; font-weight: 900; font-size: 1.1rem; }
-        .institution { color: var(--accent-blue); font-weight: 600; font-size: 0.9rem; }
-        .description { margin-top: 10px; font-size: 0.9rem; line-height: 1.6; }
-        
-        .proof-link { 
-            color: var(--accent-blue) !important; 
-            text-decoration: none; 
-            font-weight: 600; display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; 
-        }
-        .proof-link i { color: #ff4d4d !important; font-size: 1.1rem; }
-
-        .skills-block { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { padding: 10px 20px; border: 1px solid var(--text-muted); font-size: 0.7rem; font-weight: 600; text-decoration: none; color: inherit; transition: 0.4s; }
-        .skill-tag:hover { background: var(--accent-blue); color: white; border-color: var(--accent-blue); transform: translateY(-5px); }
-
-        /* --- LINKEDIN BADGE CONTAINER --- */
-        .linkedin-wrapper { margin-top: 30px; }
-
-        /* --- CONTACT --- */
-        footer { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        footer h2 { font-size: 2.5rem; margin-bottom: 40px; font-weight: 900; }
-        .social-links { display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .social-links a { 
-            text-decoration: none; font-weight: 700; font-size: 0.75rem; transition: 0.4s; 
-            position: relative; padding-bottom: 8px; display: inline-flex; align-items: center; 
-        }
-
-        .social-links a.gmail { color: #EA4335; }
-        .social-links a.linkedin { color: #0077B5; }
-        .social-links a.instagram { 
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .social-links a.whatsapp { color: #25D366; }
-
-        .theme-btn { background: none; border: 1px solid var(--border-color); color: var(--text-main); cursor: pointer; padding: 8px 12px; border-radius: 50px; }
-        .copy { margin-top: 80px; opacity: 0.8; font-size: 0.7rem; letter-spacing: 1px; }
-
-        /* --- MOBILE FIXES --- */
-        @media (max-width: 768px) {
-            nav { padding: 15px 5%; }
-            .menu-btn { display: block; }
-            nav ul {
-                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-                background: var(--bg-main); flex-direction: column; justify-content: center;
-                transition: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
-            }
-            #click:checked ~ ul { right: 0; }
-            nav ul li { margin: 20px 0; margin-left: 0; }
-            nav ul li a { font-size: 1.5rem; }
-
-            header { height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-            .hero-image { width: 100vw; height: 100vh; opacity: 0.4; mask-image: linear-gradient(to top, transparent 0%, black 40%); }
-            .hero-content { padding: 0 5%; text-align: center; width: 100%; }
-            h1 { font-size: 11vw; line-height: 1.2; }
-            .split-content { flex-direction: column; gap: 30px; }
-        }
-    </style>
 </head>
 <body>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
     <nav>
         <div class="logo">Designed By :- @Kogulan AK</div>
@@ -209,8 +59,8 @@
                         <h3 class="edu-title">G.C.E. Advanced Level & Ordinary Level</h3>
                         <p class="institution">Colombo Hindu College | 2009 - 2023</p>
                         <div class="description">
-                            <p><strong>Advanced Level (2023):</strong> <a href="#" class="proof-link">Physical Science Stream (B, 2C) <i class="fa-solid fa-file-pdf"></i></a></p>
-                            <p style="margin-top: 10px;"><strong>Ordinary Level (2019):</strong> <a href="#" class="proof-link">Achieved 9A passes <i class="fa-solid fa-file-pdf"></i></a></p>
+                            <p><strong>Advanced Level (2023):</strong> <a href="link" class="proof-link" target="_blank">Physical Science Stream (B, 2C) <i class="fa-solid fa-file-pdf"></i></a></p>
+                            <p style="margin-top: 10px;"><strong>Ordinary Level (2019):</strong> <a href="link" class="proof-link" target="_blank">Achieved 9A passes <i class="fa-solid fa-file-pdf"></i></a></p>
                         </div>
                     </div>
                     <div class="edu-block">
@@ -232,17 +82,20 @@
                 </div>
                 <div class="right">
                     <div class="skills-block">
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">AutoCAD</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Unity</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Lean Manufacturing</span>
-                        <span class="skill-tag">Microsoft Excel</span>
-                        <span class="skill-tag">Web Development</span>
-                        <span class="skill-tag">Mechatronic Tech</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Prompt Engineering</span>
+                        <a href="link" class="skill-tag" target="_blank">SolidWorks ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">AutoCAD ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Python ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Unity ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">C++ ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Lean Manufacturing ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Microsoft Excel ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Web Development ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Mechanical & Mechatronic Tech ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Calculations (Abacus) ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Data Analysis ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Prompt Engineering ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">Coding ↗</a>
+                        <a href="link" class="skill-tag" target="_blank">MySQL Database ↗</a>
                     </div>
                 </div>
             </div>
@@ -262,6 +115,7 @@
                         <p class="institution">Thermal Management | System Design</p>
                         <div class="description">
                             <p>Designed and developed a liquid-based ventilation system to enhance cooling efficiency. Involved rigorous thermal analysis, component selection, and performance testing.</p>
+                            <a href="link" class="proof-link" target="_blank" style="margin-top: 10px;">Project Proposal <i class="fa-solid fa-file-pdf"></i></a>
                         </div>
                     </div>
                     <div class="edu-block">
@@ -269,6 +123,23 @@
                         <p class="institution">Fabrication | Structural Design</p>
                         <div class="description">
                             <p>Engineered a fuel tank prototype with a focus on safety standards and structural integrity. Contributed to fabrication processes and authored technical reports.</p>
+                            <a href="link" class="proof-link" target="_blank" style="margin-top: 10px;">Technical Report <i class="fa-solid fa-file-pdf"></i></a>
+                        </div>
+                    </div>
+                    <div class="edu-block">
+                        <h3 class="edu-title">Human Powered Submarine</h3>
+                        <p class="institution">Propulsion & Stability Analysis</p>
+                        <div class="description">
+                            <p>Developed a speed prediction model focusing on neutral buoyancy, hull stability, and propulsion efficiency. Verification calculations performed in Excel.</p>
+                            <a href="link" class="proof-link" target="_blank" style="margin-top: 10px;">Design Proposal <i class="fa-solid fa-file-pdf"></i></a>
+                        </div>
+                    </div>
+                    <div class="edu-block">
+                        <h3 class="edu-title">Multiplayer Racing Game</h3>
+                        <p class="institution">Unity Engine | C# Programming</p>
+                        <div class="description">
+                            <p>Developed a multiplayer car racing game using Unity. Worked on game mechanics, basic physics, and user interaction.</p>
+                            <a href="link" class="proof-link" target="_blank" style="margin-top: 10px;">Development Docs <i class="fa-solid fa-file-pdf"></i></a>
                         </div>
                     </div>
                     <div class="edu-block">
@@ -276,6 +147,7 @@
                         <p class="institution">Mechatronics | Robotics</p>
                         <div class="description">
                             <p>Autonomous hardware project utilizing ultrasonic sensors for real-time navigation and obstacle avoidance logic.</p>
+                            <a href="link" class="proof-link" target="_blank" style="margin-top: 10px;">System Architecture <i class="fa-solid fa-file-pdf"></i></a>
                         </div>
                     </div>
                 </div>
@@ -290,15 +162,9 @@
                 <div class="left">
                     <h2 class="section-heading">Resume</h2>
                     
-                    <div class="linkedin-wrapper">
-                        <div class="badge-base LI-profile-badge" 
-                             data-locale="en_US" 
-                             data-size="medium" 
-                             data-theme="dark" 
-                             data-type="VERTICAL" 
-                             data-vanity="kogulan-anbuselvan" 
-                             data-version="v1">
-                            <a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/kogulan-anbuselvan?trk=profile-badge">Connect on LinkedIn</a>
+                    <div class="linkedin-badge-wrapper">
+                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="kogulan-anbuselvan" data-version="v1">
+                            <a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/kogulan-anbuselvan?trk=profile-badge"></a>
                         </div>
                     </div>
                 </div>
@@ -323,10 +189,18 @@
             <div class="label" style="text-align: center;">05 / GET IN TOUCH</div>
             <h2 style="text-align: center;">Let's build something <span style="color: var(--accent-blue);">together.</span></h2>
             <div class="social-links">
-                <a href="mailto:kogulk194@gmail.com" class="gmail"><i class="fa-solid fa-envelope"></i> GMAIL</a>
-                <a href="https://www.linkedin.com/in/kogulan-anbuselvan" target="_blank" class="linkedin"><i class="fa-brands fa-linkedin"></i> LINKEDIN</a>
-                <a href="https://www.instagram.com/kogulan.ak" target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
-                <a href="https://wa.me/94787929716" target="_blank" class="whatsapp"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kogulk194@gmail.com" target="_blank" class="gmail">
+                    <i class="fa-solid fa-envelope"></i> GMAIL
+                </a>
+                <a href="https://www.linkedin.com/in/kogulan-anbuselvan" target="_blank" class="linkedin">
+                    <i class="fa-brands fa-linkedin"></i> LINKEDIN
+                </a>
+                <a href="https://www.instagram.com/kogulan.ak?igsh=MWl3cGd0NGxldmVnbA==" target="_blank" class="instagram">
+                    <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                </a>
+                <a href="https://wa.me/94787929716" target="_blank" class="whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WHATSAPP
+                </a>
             </div>
             <p class="copy">© 2026 KOGULAN ANBUSELVAN. ALL RIGHTS RESERVED.</p>
         </div>
@@ -343,11 +217,12 @@
             root.setAttribute('data-theme', newTheme);
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
-
-            // LIVE UPDATE: Update LinkedIn Badge theme
+            
+            // Logic to update LinkedIn Badge theme live
             const badge = document.querySelector('.LI-profile-badge');
             if(badge) {
                 badge.setAttribute('data-theme', newTheme);
+                // Re-trigger LinkedIn script to re-render the badge with the new theme
                 if(window.LIRC) { window.LIRC.renderAll(); }
             }
         });
