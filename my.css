@@ -184,3 +184,26 @@ footer h2 { font-size: 2.5rem; margin-bottom: 40px; font-weight: 900; }
     .split-content { flex-direction: column; gap: 30px; }
     .left, .right { width: 100%; flex: none; }
 }
+
+
+/* --- LINKEDIN BADGE STYLING --- */
+.linkedin-badge-wrapper {
+    margin-top: 30px;
+    display: inline-block;
+    filter: grayscale(20%); /* Matches your hero section aesthetic */
+    transition: 0.3s ease;
+}
+
+.linkedin-badge-wrapper:hover {
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 768px) {
+    .linkedin-badge-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
