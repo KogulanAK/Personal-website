@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
     <nav>
         <div class="logo">Designed By :- @Kogulan AK</div>
@@ -161,12 +160,6 @@
             <div class="split-content">
                 <div class="left">
                     <h2 class="section-heading">Resume</h2>
-                    
-                    <div class="linkedin-badge-wrapper">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="kogulan-anbuselvan" data-version="v1">
-                            <a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/kogulan-anbuselvan?trk=profile-badge"></a>
-                        </div>
-                    </div>
                 </div>
                 <div class="right">
                     <div class="edu-block">
@@ -217,16 +210,9 @@
             root.setAttribute('data-theme', newTheme);
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
-            
-            // Logic to update LinkedIn Badge theme live
-            const badge = document.querySelector('.LI-profile-badge');
-            if(badge) {
-                badge.setAttribute('data-theme', newTheme);
-                // Re-trigger LinkedIn script to re-render the badge with the new theme
-                if(window.LIRC) { window.LIRC.renderAll(); }
-            }
         });
 
+        // Close menu when a link is clicked (crucial for mobile UX)
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('click').checked = false;
